@@ -1,0 +1,46 @@
+{
+    "diffusion_config":{
+        "T": 200,
+        "beta_0": 0.0001,
+        "beta_T": 0.02
+    },
+    "biSSM2_config":{
+        "in_channels": 14,
+        "layers": 8,
+        "seq_len": 100,
+        "seq_dim": 128,
+        "res_channels": 128,
+        "diffusion_embedding_dim": 128,
+        "num_steps": 100,
+        "num_ssm": 1,
+        "cond_ssm_num": 1,
+        "input_ssm_num":1,
+        "num_ch": 128,
+        "expand_c": 2,
+        "expand_s": 2,
+        "headdim_c": 16,
+        "headdim_s": 16
+    },
+    "train_config":{
+        "output_directory": "./results/mujoco/BiSSM2train90",
+        "ckpt_iter": "max",
+        "iters_per_ckpt": 2000,
+        "iters_per_logging": 1,
+        "n_iters": 300000,
+        "learning_rate": 2e-4,
+        "only_generate_missing": 1,
+        "use_model": 1,
+        "masking": "rm",
+        "missing_k": 90
+    },
+    "trainset_config":{
+        "train_data_path": "./datasets/mujoco_train.npy",
+        "test_data_path": "./datasets/mujoco_test.npy",
+        "segment_length": 100,
+        "sampling_rate": 100
+    },
+    "gen_config":{
+        "output_directory": "./results/mujoco/BiSSM2inference90",
+        "ckpt_path": "./results/mujoco/BiSSM2train90"
+    }
+}
