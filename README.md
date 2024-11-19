@@ -26,3 +26,12 @@ inference for specific dataset:
 python inference.py --config path_to_your_config
 ```
 If you want to build your own imputer, modify `./imputers` according to the imputer files.
+
+
+For mujoco dataset:
+```bash
+python train.py --config ./config/config_bissm2_mujoco_90_large.json
+```
+For ablation studies:
+
+modify `line 16` in `train.py` and `line 9` in `inference.py` to corresponding imputers in `.\imputers\` 
